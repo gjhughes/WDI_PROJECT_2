@@ -1,0 +1,23 @@
+<h1>Show the beer</h1>
+
+<div class="large-12 columns">
+  <h2><%= beer.name %></h2>
+
+  <section>
+    <h4>Comments</h4>
+    <% beer.comments.forEach((comment) => { %>
+      <p><%= comment.content %></p>
+    <% }) %>
+  </section>
+
+
+  <% if(locals.isAuthenticated) { %>
+    <section>
+      <h4>Leave a review</h4>
+      <form method="POST" action="/beers/<%= beer.id %>/comments">
+        <textarea name="content" id="content" placeholder="Comment" required maxlength="255"></textarea>
+        <button class="button">Submit</button>
+      </form>
+    </section>
+  <% } %>
+</div>

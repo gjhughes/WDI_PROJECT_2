@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Beers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <% include ./partials/_stylesheets.ejs %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <% include ./partials/_navbar %>
+    <% for(const type in messages) { %>
+      <div class="callout <%= type %>">
+        <h5><%= messages[type] %></h5>
+      </div>
+    <% } %>
+    <main class="row">
+      <%- body %>
+    </main>
+
+    <% include ./partials/_scripts.ejs %>
+  </body>
+</html>

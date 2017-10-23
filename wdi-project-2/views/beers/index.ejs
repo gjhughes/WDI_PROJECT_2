@@ -1,0 +1,11 @@
+<h1>Beers index</h1>
+
+<% Object.keys(breweries).forEach((brewery) => { %>
+  <ul class="col l4 collection with-header">
+    <li class="collection-header"><h4><%= brewery %></h4></li>
+
+    <% breweries[brewery].forEach((beer) => { %>
+      <li class="collection-item"><div><%= beer.name %><a href="/beers/<%= beer.id %>" class="secondary-content"><i class="material-icons">Leave a review</i></a></div></li>
+    <% }) %>
+  </ul>
+<% }) %>

@@ -1,0 +1,15 @@
+<nav>
+  <div class="#455a64 blue-grey darken-2
+ nav-wrapper">
+    <a href="#" class="brand-logo"></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if(!locals.isAuthenticated) { %>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+      <% } else { %>
+        <li><a href="/profile"><%= user.username %></a></li>
+        <li><a href="/logout">Logout</a></li>
+      <% } %>
+    </ul>
+  </div>
+</nav>
