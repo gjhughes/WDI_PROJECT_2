@@ -38,6 +38,7 @@ User
         name: 'Punk',
         category: 'IPA',
         abv: 5.4,
+        createdBy: users[0],
         description: 'Something.',
         image: 'https://untappd.akamaized.net/site/beer_logos/beer-5702_7d1d7_sm.jpeg'
 

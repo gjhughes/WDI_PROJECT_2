@@ -7,6 +7,7 @@
       <div class="card-body">
         <h4 class="card-title"><%= beer.name %></h4>
         <p class="card-text"><%= beer.description %></p>
+        <p>created by <%= beer.createdBy.username %></p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
       </div>
     </div>
@@ -24,8 +25,9 @@
   <% } %>
 
       <% beer.comments.forEach((comment) => { %>
-      <p><%= comment.content %></p>
-        <small><%= comment.createdBy.username %></small>
+        <p><%= comment.content %></p>
+        <small>comment by <%= comment.createdBy.username %></small>
+
         <% if(locals.isAuthenticated) { %>
           <form method="POST" action="/beers/<%= beer._id %>/comments/<%= comment._id %>">
           <input type="hidden" name="_method" value="DELETE">
@@ -33,6 +35,7 @@
           </form>
         <% } %>
       <% }) %>
+
   <% if(locals.isAuthenticated) { %>
       <h4>Leave a review</h4>
       <form method="POST" action="/beers/<%= beer.id %>/comments">

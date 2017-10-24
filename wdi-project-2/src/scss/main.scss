@@ -9,7 +9,7 @@ main page background
 */
 
 .bg {
-  background-image: url('../images/craftbw.png');
+  background-image: url('../images/craft-bg.jpg');
   mask-type: luminance;
   height: 100%;
   background-position: center;
@@ -19,7 +19,7 @@ main page background
 }
 
 .logo {
-  margin-top: 250px;
+  margin-top: 275px;
 }
 
 .tagline {
@@ -27,12 +27,21 @@ main page background
 }
 
 /*
-button styles
+home navigation
 */
 
-.about {
-  color: white;
+.home-nav {
+  display: inline-block;
 }
+//
+// .home-nav ul li {
+//   display: inline;
+//   float: right;
+// }
+
+/*
+button styles
+*/
 
 .about:hover {
   text-decoration: underline;
@@ -40,22 +49,18 @@ button styles
 }
 
 .login-btn {
-  margin-left: 20px;
+  margin-top: 25px;
   color: white;
   background-color: transparent;
   border: 1px solid white;
   border-radius: 25px;
   width: 160px;
   height: 38px;
-
-
 }
 
 .login-btn a {
-  margin-top: -7px;
   color: white;
   padding: none;
-
 }
 
 .login-btn:hover {

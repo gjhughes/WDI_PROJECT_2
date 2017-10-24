@@ -16,14 +16,14 @@ const beerSchema = new mongoose.Schema({
   category: { type: String, required: true },
   abv: { type: String, required: true },
   description: { type: String },
-  // createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   image: String,
   comments: [ commentSchema ]
 });
 
-// beerSchema.methods.belongsTo = function beerBelongsTo(user) {
-//   if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
-//   return user.id === this.createdBy.toString();
-// };
+beerSchema.methods.belongsTo = function beerBelongsTo(user) {
+  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
+  return user.id === this.createdBy.toString();
+};
 
 module.exports = mongoose.model('Beer', beerSchema);
