@@ -1,3 +1,116 @@
-body {
-  font-family: 'Roboto', sans-serif;
+body,
+html {
+  height: 100%;
+
+}
+
+/*
+main page background
+*/
+
+.bg {
+  background-image: url('../images/craftbw.png');
+  mask-type: luminance;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.logo {
+  margin-top: 250px;
+}
+
+.tagline {
+  color: white;
+}
+
+/*
+button styles
+*/
+
+.about {
+  color: white;
+}
+
+.about:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.login-btn {
+  margin-left: 20px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 25px;
+  width: 160px;
+  height: 38px;
+
+
+}
+
+.login-btn a {
+  margin-top: -7px;
+  color: white;
+  padding: none;
+
+}
+
+.login-btn:hover {
+  background-color: #4BEE53;
+  text-decoration: underline;
+}
+
+.learn-btn {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  width: 160px;
+  margin-top: 25px;
+  margin-right: 10px;
+  border-radius:25px;
+}
+
+.learn-btn a {
+  color: white;
+}
+
+.learn-btn:hover {
+  background-color: #5C6167;
+}
+
+.register-btn {
+  border: 1px solid white;
+  background-color: #5C6167;
+  width: 160px;
+  margin-top: 25px;
+  border-radius: 25px;
+}
+
+.register-btn a {
+  color: white;
+}
+
+.register-btn:hover {
+  background-color: #5C6167;
+}
+
+.input-field label {
+  color: #5C6167;
+}
+
+.input-field input[type=text]:focus + label {
+  color: #5C6167;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #5C6167;
+  box-shadow: 0 1px 0 0 #5C6167;
+}
+
+.card-img {
+  width: 150px;
+  height: 150px;
 }

@@ -3,12 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Beers</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/main.css">
     <% include ./partials/_stylesheets.ejs %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </head>
   <body>
-    <% include ./partials/_navbar %>
+    <% if (currentPath !== '/') { %>
+      <% include ./partials/_navbar %>
+    <% } %>
     <% for(const type in messages) { %>
       <div class="callout <%= type %>">
         <h5><%= messages[type] %></h5>

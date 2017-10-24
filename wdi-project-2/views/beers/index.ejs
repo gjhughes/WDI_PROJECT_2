@@ -1,11 +1,22 @@
-<h1>Beers index</h1>
 
-<% Object.keys(breweries).forEach((brewery) => { %>
-  <ul class="col l4 collection with-header">
-    <li class="collection-header"><h4><%= brewery %></h4></li>
 
-    <% breweries[brewery].forEach((beer) => { %>
-      <li class="collection-item"><div><%= beer.name %><a href="/beers/<%= beer.id %>" class="secondary-content"><i class="material-icons">Leave a review</i></a></div></li>
-    <% }) %>
-  </ul>
-<% }) %>
+<div class="container">
+
+
+  <div class="card-deck">
+      <% Object.keys(breweries).forEach((brewery) => { %>
+    <h3><%= brewery %></h3>
+
+      <div class="card">
+          <% breweries[brewery].forEach((beer) => { %>
+          <img class="card-img-top card-img" src="<%= beer.image %>" alt="Card image cap">
+          <div class="card-body">
+          <h4 class="card-title"><a href="/beers/<%= beer.id %>"><%= beer.name %></a></a></h4>
+          <p class="card-text"><%= beer.description %></p>
+        </div>
+      <% }) %>
+    </div>
+  <% }) %>
+
+  </div>
+</div>

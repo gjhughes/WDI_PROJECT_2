@@ -1,23 +1,46 @@
-<h1>Show the beer</h1>
+<div class="container">
 
-<div class="large-12 columns">
-  <h2><%= beer.name %></h2>
 
-  <section>
-    <h4>Comments</h4>
-    <% beer.comments.forEach((comment) => { %>
-      <p><%= comment.content %></p>
-    <% }) %>
-  </section>
+
+    <div class="card mb-3">
+      <img class="card-img-top card-img" src="<%= beer.image %>" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title"><%= beer.name %></h4>
+        <p class="card-text"><%= beer.description %></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
 
 
   <% if(locals.isAuthenticated) { %>
-    <section>
+    <button class="btn">
+      <a href="/beers/<%= beer.id %>/edit">Edit</a>
+    </button>
+
+    <form method="POST" action="/beers/<%= beer.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="btn">Delete</button>
+    </form>
+  <% } %>
+
+      <% beer.comments.forEach((comment) => { %>
+      <p><%= comment.content %></p>
+        <small><%= comment.createdBy.username %></small>
+        <% if(locals.isAuthenticated) { %>
+          <form method="POST" action="/beers/<%= beer._id %>/comments/<%= comment._id %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="btn alert">Delete</button>
+          </form>
+        <% } %>
+      <% }) %>
+  <% if(locals.isAuthenticated) { %>
       <h4>Leave a review</h4>
       <form method="POST" action="/beers/<%= beer.id %>/comments">
         <textarea name="content" id="content" placeholder="Comment" required maxlength="255"></textarea>
-        <button class="button">Submit</button>
+        <button class="btn">Submit</button>
       </form>
     </section>
   <% } %>
+
+
 </div>

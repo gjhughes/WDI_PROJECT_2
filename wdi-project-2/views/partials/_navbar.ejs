@@ -1,15 +1,25 @@
-<nav>
-  <div class="#455a64 blue-grey darken-2
- nav-wrapper">
-    <a href="#" class="brand-logo"></a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <% if(!locals.isAuthenticated) { %>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">FindCraft</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+    <% if(!locals.isAuthenticated) { %>
+      <li class="nav-item">
+        <a class="nav-link active mr-auto about" href="/beers">Beers<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
       <% } else { %>
-        <li><a href="/profile"><%= user.username %></a></li>
-        <li><a href="/logout">Logout</a></li>
-      <% } %>
-    </ul>
-  </div>
-</nav>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile"><%= user.username %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>

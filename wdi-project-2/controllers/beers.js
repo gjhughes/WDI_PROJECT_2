@@ -1,5 +1,6 @@
 const Beer = require('../models/beer');
 
+
 function indexRoute(req, res, next) {
   Beer
     .find()
@@ -13,8 +14,6 @@ function indexRoute(req, res, next) {
         return r;
       }, Object.create(null));
 
-console.log(breweries)
-
       res.render('beers/index', { breweries });
     })
     .catch(next);
@@ -27,14 +26,17 @@ function newRoute(req, res) {
 function createRoute(req, res, next) {
 
   req.body.createdBy = req.user;
+  console.log(req.user);
 
   Beer
     .create(req.body)
     .then(() => res.redirect('/beers'))
     .catch((err) => {
-      if(err.name === 'ValidationError') return res.badRequest(`/beers/${req.params.id}/edit`, err.toString());
+      console.log(err);
+      if(err.name === 'ValidationError') return res.badRequest('/beers/new', err.toString());
       next(err);
     });
+
 }
 
 function showRoute(req, res, next) {
@@ -55,8 +57,8 @@ function editRoute(req, res, next) {
     .exec()
     .then((beer) => {
       if(!beer) return res.redirect();
-      if(!beer.belongsTo(req.user)) return res.unauthorized(`/beers/${beer.id}`, 'You do not have permission to edit that resource');
-      return res.render('beer/edit', { beer });
+      // if(!beer.belongsTo(req.user)) return res.unauthorized(`/beers/${beer.id}`, 'You do not have permission to edit that resource');
+      return res.render('beers/edit', { beer });
     })
     .catch(next);
 }
@@ -119,7 +121,7 @@ function deleteCommentRoute(req, res, next){
       comment.remove();
       return beer.save();
     })
-    .then((beer) => res.redirec(`/beers/${beer.id}`))
+    .then((beer) => res.redirect(`/beers/${beer.id}`))
     .catch(next);
 }
 

@@ -7,9 +7,11 @@ mongoose.connect(dbUri, { useMongoClient: true });
 // Require the model
 const User = require('../models/user');
 const Beer = require('../models/beer');
+
 // Drop the model
 User.collection.drop();
 Beer.collection.drop();
+
 // Create the models
 User
   .create([{
@@ -26,21 +28,27 @@ User
       .create([{
         brewery: 'Beavertown',
         name: 'Gamma Ray',
-        category: 'Pale Ale - American',
+        category: 'American Pale Ale',
         abv: 5.4,
-        description: 'Big, hoppy and fresh. Juicy American hops added in ever increasing amounts at the end of the boil and in the fermenter to give huge flavor and aroma.'
+        createdBy: users[0],
+        description: 'Big, hoppy and fresh. Juicy American hops added in ever increasing amounts at the end of the boil and in the fermenter to give huge flavor and aroma.',
+        image: 'https://untappd.akamaized.net/site/beer_logos/beer-237500_52d55_sm.jpeg'
       }, {
         brewery: 'Brewdog',
         name: 'Punk',
         category: 'IPA',
         abv: 5.4,
-        description: 'Something.'
+        description: 'Something.',
+        image: 'https://untappd.akamaized.net/site/beer_logos/beer-5702_7d1d7_sm.jpeg'
+
       }, {
         brewery: 'Beavertown',
         name: 'Neck Oil',
         category: 'Session IPA',
         abv: 4,
-        description: 'good beer'
+        createdBy: users[0],
+        description: 'good beer',
+        image: 'https://untappd.akamaized.net/site/beer_logos/beer-136656_7e75b_sm.jpeg'
       }]);
   })
   .then((beers) => console.log(`${beers.length} beers created`))

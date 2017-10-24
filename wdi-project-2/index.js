@@ -38,6 +38,12 @@ app.use(methodOverride(function (req) {
     return method;
   }
 }));
+
+app.use((req, res, next) => {
+  global.currentPath = req.path;
+  next();
+});
+
 app.use(authentication);
 app.use(routes);
 app.use(errorHandler);
