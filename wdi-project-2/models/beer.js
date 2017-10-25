@@ -11,7 +11,7 @@ commentSchema.methods.belongsTo = function commentBelongsTo(user) {
 };
 
 const beerSchema = new mongoose.Schema({
-  brewery: { type: String, required: true },
+  brewery: { type: mongoose.Schema.ObjectId, ref: 'Brewery' },
   name: { type: String, required: true },
   category: { type: String, required: true },
   abv: { type: String, required: true },
@@ -21,9 +21,9 @@ const beerSchema = new mongoose.Schema({
   comments: [ commentSchema ]
 });
 
-beerSchema.methods.belongsTo = function beerBelongsTo(user) {
-  if(typeof this.createdBy.id === 'string') return this.createdBy.id === user.id;
-  return user.id === this.createdBy.toString();
+beerSchema.methods.belongsTo = function beerBelongsTo(brewery) {
+  if(typeof this.brewery.id === 'string') return this.brewery.id === brewery.id;
+  return brewery.id === this.brewery.toString();
 };
 
 module.exports = mongoose.model('Beer', beerSchema);

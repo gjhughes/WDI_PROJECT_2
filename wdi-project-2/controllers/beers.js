@@ -4,19 +4,13 @@ const Beer = require('../models/beer');
 function indexRoute(req, res, next) {
   Beer
     .find()
-    .populate('createdBy')
     .exec()
-    .then((beers) => {
-
-      const breweries = beers.reduce((r, a) => {
-        r[a.brewery] = r[a.brewery] || [];
-        r[a.brewery].push(a);
-        return r;
-      }, Object.create(null));
-
-      res.render('beers/index', { breweries });
-    })
+    .then((beers) => res.render('beers/index', { beers }))
     .catch(next);
+}
+
+function newRoute(req, res) {
+  return res.render('breweries/new');
 }
 
 function newRoute(req, res) {

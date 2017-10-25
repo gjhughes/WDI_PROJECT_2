@@ -2,6 +2,7 @@ const express = require('express');
 const registrationsController = require('../controllers/registrations');
 const sessionsController = require('../controllers/sessions');
 const beersController = require('../controllers/beers');
+const breweriesController = require('../controllers/breweries');
 const usersController = require('../controllers/users');
 
 const router  = express.Router();
@@ -38,6 +39,14 @@ router.route('/beers/:id')
 
 router.route('/beers/:id/edit')
   .get(beersController.edit);
+
+// Brewery Routes
+router.route('/breweries')
+  .get(breweriesController.index)
+  .post(secureRoute, breweriesController.create);
+
+router.route('/breweries/:id')
+  .get(breweriesController.show);
 
 // User Routes
 router.route('/register')

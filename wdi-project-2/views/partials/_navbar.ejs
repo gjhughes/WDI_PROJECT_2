@@ -1,20 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">FindCraft</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+  <button class="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav ml-auto">
     <% if(!locals.isAuthenticated) { %>
       <li class="nav-item">
         <a class="nav-link active mr-auto about" href="/beers">Beers<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active mr-auto about" href="/breweries">Breweries<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/login">Login</a>
       </li>
       <% } else { %>
         <li class="nav-item">
-          <a class="nav-link" href="/users/<%= user.id %>"><%= user.username %></a>
+          <a class="nav-link mr-right" href="/users/<%= user.id %>"><%= user.username %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mr-right" href="/beers">Beers<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mr-right" href="/breweries">Breweries<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
