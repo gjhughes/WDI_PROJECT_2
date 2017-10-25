@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
 
   <div class="row">
     <div class="col-4">
@@ -21,13 +21,33 @@
             <button class="btn btn-danger btn-block">Delete</button><br>
             </form>
             <small class="text-muted text-center">Created by <a href="/users/<%= user.id %>"><%= beer.createdBy.username %></a></small>
+            </div>
+            <% } %>
           </div>
-        <% } %>
-      </div>
-          </div>
+        </div>
 
-      <div class="col-8">
-        <hr />
+        <div class="col-8">
+        <h3><%= beer.name %> Reviews</h3>
+          <% beer.comments.forEach((comment) => { %>
+          <div class="card">
+            <div class="card-header">
+              <small class="text-muted">Review left by <a href="/users/<%= user.id %>"><%= comment.createdBy.username %></a></small>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><%= comment.content %></p>
+
+              <% if(locals.isAuthenticated && comment.belongsTo(user)) { %>
+              <form method="POST" action="/beers/<%= beer.id %>/comments/<%= comment.id %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+            <% } %>
+
+          </div>
+          <hr />
+          <% }) %>
+
         <% if(locals.isAuthenticated) { %>
           <form method="POST" action="/beers/<%= beer.id %>/comments">
             <textarea class="col-12" name="content" id="content" placeholder="Leave a review..." required maxlength="255" rows="5"></textarea><br />
@@ -35,9 +55,5 @@
           </form>
         <% } %>
       </div>
-
-
   </div>
-
-
 </div>
