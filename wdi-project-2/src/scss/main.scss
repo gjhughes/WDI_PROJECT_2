@@ -48,6 +48,10 @@ button styles
   color: white;
 }
 
+.btn {
+  border-radius: 25px;
+}
+
 .login-btn {
   margin-top: 25px;
   color: white;
@@ -100,22 +104,4 @@ button styles
 
 .register-btn:hover {
   background-color: #5C6167;
-}
-
-.input-field label {
-  color: #5C6167;
-}
-
-.input-field input[type=text]:focus + label {
-  color: #5C6167;
-}
-
-.input-field input[type=text]:focus {
-  border-bottom: 1px solid #5C6167;
-  box-shadow: 0 1px 0 0 #5C6167;
-}
-
-.card-img {
-  width: 150px;
-  height: 150px;
 }
