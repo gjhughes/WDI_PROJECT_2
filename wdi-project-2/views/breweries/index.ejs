@@ -1,19 +1,23 @@
-  <div class="container">
-    <br />
-    <div class="row">
-    <% breweries.forEach((brewery) => { %>
-    <div class="card mb-3 col-4">
+<% breweries.forEach((brewery) => { %>
+<div class="container">
+  <br />
+  <div class="row">
+    <div class="col-4">
       <img class="card-img-top logo-img" src="<%= brewery.image %>" alt="Card image cap">
-      <div class="card-body">
-        <h4 class="card-title"><%= brewery.breweryName %></h4>
-        <small class="card-text"><%= brewery.address.line1 %>,</small>
-        <small class="card-text"><%= brewery.address.line2 %>,</small>
-        <small class="card-text"><%= brewery.address.city %>,</small>
-        <small class="card-text"><%= brewery.address.postcode %></small>
-        <a href="/breweries/<%= brewery.id %>/" class="btn btn-outline-secondary btn-block">See the beer</a>
-        </div>
-      </div>
-      <% }) %>
     </div>
-
+    <div class="col-8">
+      <h4 class="card-title"><%= brewery.breweryName %></h4>
+      <small class="card-text"><%= brewery.address.line1 %>,</small><br />
+      <small class="card-text"><%= brewery.address.line2 %>,</small><br />
+      <small class="card-text"><%= brewery.address.city %>,</small><br />
+      <small class="card-text"><%= brewery.address.postcode %></small><br />
+      <div class="col-4">
+      <br />
+      <a href="/breweries/<%= brewery.id %>/" class="btn btn-outline-secondary btn-block ">See the beer</a>
+      </div>
+    </div>
+    </div>
+    <hr />
+    <% }) %>
   </div>
+</div>
