@@ -1,7 +1,6 @@
 body,
 html {
   height: 100%;
-
 }
 
 /*
@@ -9,7 +8,7 @@ main page background
 */
 
 .bg {
-  background-image: url('../images/craft-bg.jpg');
+  // background-image: url('../images/craft-bg.jpg');
   mask-type: luminance;
   height: 100%;
   background-position: center;
@@ -68,7 +67,7 @@ button styles
 }
 
 .login-btn:hover {
-  background-color: #4BEE53;
+  background-color: #4bee53;
   text-decoration: underline;
 }
 
@@ -79,7 +78,7 @@ button styles
   width: 160px;
   margin-top: 25px;
   margin-right: 10px;
-  border-radius:25px;
+  border-radius: 25px;
 }
 
 .learn-btn a {
@@ -87,12 +86,12 @@ button styles
 }
 
 .learn-btn:hover {
-  background-color: #5C6167;
+  background-color: #5c6167;
 }
 
 .register-btn {
   border: 1px solid white;
-  background-color: #5C6167;
+  background-color: #5c6167;
   width: 160px;
   margin-top: 25px;
   border-radius: 25px;
@@ -103,7 +102,7 @@ button styles
 }
 
 .register-btn:hover {
-  background-color: #5C6167;
+  background-color: #5c6167;
 }
 
 .card-img-top {
